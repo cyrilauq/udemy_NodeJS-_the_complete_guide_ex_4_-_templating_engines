@@ -1,0 +1,24 @@
+{
+  "name": "exercice-4-time-to-practice---templating-engines",
+  "version": "1.0.0",
+  "description": "Fourth exercice of the NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilauq/udemy_NodeJS_-_The_Complete_Guide_ex4.git"
+  },
+  "author": "Auquier CYril",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyrilauq/udemy_NodeJS_-_The_Complete_Guide_ex4/issues"
+  },
+  "homepage": "https://github.com/cyrilauq/udemy_NodeJS_-_The_Complete_Guide_ex4#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2"
+  }
+}
