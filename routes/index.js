@@ -13,25 +13,35 @@ router.post('/add_user', async (req, res, next) => {
             console.log(`Error: ${err}`);
             return;
         }
-        console.log(data);
-        console.log(JSON.parse(data));
-        console.log(typeof JSON.parse(data));
         users = JSON.parse(data);
         users.push(req.body);
     
         fs.writeFile('./users.txt', JSON.stringify(users), (err) => {
             // Will redirect to the root path
-            res.writeHead(302, {'Location': '/'});
+            res.writeHead(302, {'Location': '/users'});
             return res.end();
         });
     });
 });
 
-router.get("/users", (req, res, next) => {
-    console.log('Users page');
-    res.render('users_display', {
-        docTitle: 'Users',
-        path: '/users',
+router.get("/users", async (req, res, next) => {
+    let users = [];
+    console.log('Wanna see all of the users?');
+
+    await fs.readFile('./users.txt', 'utf8', (err, data) => {
+        if(err) {
+            console.log(`Error: ${err}`);
+            return;
+        }
+        users = JSON.parse(data);
+        console.log(users);
+        console.log(`${users.length}`);
+    
+        res.render('users_display', {
+            users,
+            docTitle: 'Users',
+            path: '/users',
+        });
     });
 });
 
